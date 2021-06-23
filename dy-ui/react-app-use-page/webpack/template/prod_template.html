@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>线上环境</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.jsUrl = {{ jsUrl | safe }};
+      window.cssUrl = {{ cssUrl | safe }};
+    </script>
+
+    <!-- 该script文件用来接收从宿主环境传过来的 userToken 并且渲染打包生成的 js 和 css 资源-->
+    <script src="https://b.yzcdn.cn/wsc-pc-apps/static/yzy_container_1.0.5.js"></script>
+  </body>
+</html>

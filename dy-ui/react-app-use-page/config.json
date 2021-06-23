@@ -1,0 +1,6 @@
+{
+  "appName": "youzanyun",
+  "configDir": "dist-config",
+  "devOutputDir": "dist-dev",
+  "prodOutputDir": "dist"
+}

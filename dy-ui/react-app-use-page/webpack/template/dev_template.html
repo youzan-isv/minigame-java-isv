@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>本地开发环境</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.jsUrl = {{ jsUrl | safe }};
+      window.cssUrl = {{ cssUrl | safe }};
+    </script>
+    <!-- 该script文件会等window onload 事件触发后将打包生成的 js 文件和 css 文件加载-->
+    <script src="https://b.yzcdn.cn/wsc-pc-apps/static/yzy_container_dev_1.0.1.js"></script>
+  </body>
+</html>
