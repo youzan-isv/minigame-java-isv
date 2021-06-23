@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.youzan.cloud.dy.dal.mapper.OrderInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.youzan.cloud.dy.dal.po.OrderInfoPO">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="kdt_id" jdbcType="BIGINT" property="kdtId"/>
+        <result column="effect_time" jdbcType="TIMESTAMP" property="effectTime"/>
+        <result column="expire_time" jdbcType="TIMESTAMP" property="expireTime"/>
+        <result column="created_at" jdbcType="TIMESTAMP" property="createdAt"/>
+        <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.youzan.cloud.dy.dal.po.OrderInfoPO">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into `order_info` (`kdt_id`, `effect_time`, `expire_time`)
+        values (#{kdtId}, #{effectTime}, #{expireTime})
+    </insert>
+
+    <select id="getByKdt" resultMap="BaseResultMap">
+        select
+        <include refid="column_list"/>
+        from `order_info`
+        where `kdt_id` = #{kdtId}
+    </select>
+
+    <select id="listAll" resultMap="BaseResultMap">
+        select
+        <include refid="column_list"/>
+        from `order_info`
+    </select>
+
+    <sql id="column_list">`id`, `kdt_id`, `effect_time`, `expire_time`, `created_at`, `updated_at`</sql>
+
+</mapper>

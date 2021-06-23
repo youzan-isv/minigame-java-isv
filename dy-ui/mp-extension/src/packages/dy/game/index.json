@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "抽奖",
+  "navigationBarBackgroundColor": "#FFF",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+  }
+}
